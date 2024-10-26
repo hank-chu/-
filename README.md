@@ -17,14 +17,14 @@ Machine Learning: Recognizing Chinese Handwritten Characters
 - `Python`、`fastai`、`OpenCV`、`Google Cloud Platform`、`Flask API`
 
 ## **使用方式**
-### 圖片前處理：adjust_picture.py
+#### 圖片前處理：adjust_picture.py
 此腳本用於調整圖片大小、灰階轉換和二值化處理，確保圖像清晰且適合模型輸入。
 
-### 生成訓練數據：generate_training_data.py
+#### 生成訓練數據：generate_training_data.py
 生成多樣化的訓練數據，增加模型訓練的泛化性。可自行調整目標文字，再通過不同字體和隨機增強生成圖像。
 
-### 建立 CNN 模型：build_model.py
+#### 建立 CNN 模型：build_model.py
 使用 fastai 建立 CNN 模型。此步驟包括模型的訓練、調參及最終的模型儲存，以便後續進行推論。
 
-### API 即時辨識：api.py
+#### API 即時辨識：api.py
 使用 Flask 框架構建的 API，實現圖像辨識的即時服務。此 API 可用於接收圖片並返回辨識結果，方便用於多種應用場景。
