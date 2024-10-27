@@ -23,17 +23,17 @@ from fastai.vision.all import *
 warnings.filterwarnings(action='ignore')
 
 # 設定資料路徑,讀取圖像資料集
-datapath = r'/home/USER/new_data_does_not_have_isnull'
+datapath = r'your_datapath'
 data = ImageDataLoaders.from_folder(datapath, valid_pct=0.2, size=100*100)
 learn = cnn_learner(data, models.resnet101, metrics=accuracy).to_fp16()  
-learn.load(r'testmodel5')  # 載入預訓練模型
+learn.load(r'your_model')  # 載入預訓練模型
 
 app = Flask(__name__)  # 建立 Flask 應用
 app.config['JSON_AS_ASCII'] = False  # 設定JSON編碼,不使用ASCII
 
 ####### PUT YOUR INFORMATION HERE #######
-CAPTAIN_EMAIL = 'reinlikes@gmail.com'  # 設定隊長的電子郵件
-SALT = 'aipineapple'  # 設定用於生成UUID的鹽
+CAPTAIN_EMAIL = 'email'  # 設定隊長的電子郵件
+SALT = 'name'  # 設定用於生成UUID的鹽
 #########################################
 
 def generate_server_uuid(input_string):
@@ -63,7 +63,7 @@ def base64_to_binary_for_cv2(image_64_encoded):
     img_base64_binary = image_64_encoded.encode("utf-8")  # 將base64字符串編碼
     img_binary = base64.b64decode(img_base64_binary)  # 解碼base64字符串
     image = cv2.imdecode(np.frombuffer(img_binary, np.uint8), cv2.IMREAD_COLOR)  # 將二進制數據解碼為圖像
-    picture_path = r"/home/aipineapple0606/picture"  # 設定圖片儲存路徑
+    picture_path = r"your_datapath"  # 設定圖片儲存路徑
     name = time.time()  # 使用當前時間作為文件名
     filename = picture_path + "\\" + str(name) + ".jpg"  # 設定圖片文件名
     cv2.imwrite(filename, image)  # 儲存圖片
